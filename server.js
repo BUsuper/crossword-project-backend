@@ -1,6 +1,6 @@
 import http from "http";
 import { sendResponse } from "./utils/sendResponse.js";
-import crosswords from "./crosswords.ts";
+import crosswords from "./src/crosswords.ts";
 
 const port = 8001;
 
@@ -18,11 +18,9 @@ const server = http.createServer((req, res) => {
           res,
           200,
           "text/plain",
-          "Use queries in the form of /api?date=1.1.2025 or /api/keys"
+          "Date parameter is required. Use queries in the form of /api?date=1.1.2025"
         );
-      }
-
-      if (crosswordsKeys.includes(date)) {
+      } else if (crosswordsKeys.includes(date)) {
         sendResponse(
           res,
           200,
@@ -40,9 +38,9 @@ const server = http.createServer((req, res) => {
     } else {
       sendResponse(
         res,
-        200,
+        404,
         "text/plain",
-        "Use queries in the form of /api?date=1.1.2025"
+        "Use queries in the form of /api?date=1.1.2025 or /api/keys"
       );
     }
   } else if (urlObject.pathname === "/api/keys") {
@@ -50,11 +48,13 @@ const server = http.createServer((req, res) => {
   } else {
     sendResponse(
       res,
-      200,
+      404,
       "text/plain",
       "Use queries in the form of /api?date=1.1.2025 or /api/keys"
     );
   }
 });
 
-server.listen(port);
+server.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
