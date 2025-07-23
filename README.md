@@ -8,3 +8,5 @@ Backend to provide REST API for my crossword project.
   In the crossword app the keys are used to enable crossword selection.
 - fetching from /api?date=DD.MM.YYYY where **DD.MM.YYYY** is a date of the crossword that you want to access (its key).
   Note that the correct format includes leading zeros for days and months: 02.07.2025 is an example of a correct date.
+
+Currently running at https://crossword-project-backend.onrender.com
