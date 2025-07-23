@@ -1,6 +1,6 @@
 import http from "http";
 import { sendResponse } from "./utils/sendResponse.js";
-import crosswords from "./src/crosswords.ts";
+import crosswords from "./src/crosswords.js";
 
 const port = 8001;
 
