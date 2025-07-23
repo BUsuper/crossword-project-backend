@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
           res,
           200,
           "text/plain",
-          "Date parameter is required. Use queries in the form of /api?date=1.1.2025"
+          "Date parameter is required. Use queries in the form of /api?date=01.01.2025"
         );
       } else if (crosswordsKeys.includes(date)) {
         sendResponse(
@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
         res,
         404,
         "text/plain",
-        "Use queries in the form of /api?date=1.1.2025 or /api/keys"
+        "Use queries in the form of /api?date=01.01.2025 or /api/keys"
       );
     }
   } else if (urlObject.pathname === "/api/keys") {
@@ -50,11 +50,11 @@ const server = http.createServer((req, res) => {
       res,
       404,
       "text/plain",
-      "Use queries in the form of /api?date=1.1.2025 or /api/keys"
+      "Use queries in the form of /api?date=01.01.2025 or /api/keys"
     );
   }
 });
 
 server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+  console.log(`Server is running`);
 });
